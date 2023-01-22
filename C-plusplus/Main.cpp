@@ -1,9 +1,21 @@
 #include <iostream>
 
+int Multiply(int a, int b)
+{
+	return a * b;
+}
+
+void MultiplyAndLog(int a, int b)
+{
+	int result = Multiply(a, b);
+	std::cout << result << std::endl;
+}
+
 int main()
 {
-	int variable = 32;
+	MultiplyAndLog(3, 2);
+	MultiplyAndLog(8, 5);
+	MultiplyAndLog(90, 45);
 
-	std::cout << variable << std::endl;
 	std::cin.get();
 }

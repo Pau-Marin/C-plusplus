@@ -1,6 +1,9 @@
 #include <iostream>
 
-int main() {
-	std::cout << "Hello World!" << std::endl;
+int main()
+{
+	int variable = 32;
+
+	std::cout << variable << std::endl;
 	std::cin.get();
 }

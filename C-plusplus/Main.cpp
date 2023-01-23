@@ -1,11 +1,17 @@
 #include <iostream>
 
-#include "Common.h"
 #include "Log.h"
 
 int main()
 {
-	InitLog();
-	Log("Hello World!");
+	const char* ptr = "Hello";
+
+	if (ptr)
+		Log("Hello World!");
+	else if (ptr == "Hello")
+		Log("Ptr is Hello!");
+	else
+		Log("Ptr is null!");
+
 	std::cin.get();
 }

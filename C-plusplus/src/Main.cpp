@@ -4,42 +4,12 @@
 
 int main()
 {
-	// for (;;) {} -> Infinite loop
-
-	/*
-	 * Perfectly valid for loop
-	 *
-	 * int i = 0;
-	 * bool condition = true;
-	 *
-	 * for (; condition; ) {
-	 *	Log("Hello World!");
-	 *	i++;
-	 *	if (!(i < 5)) {
-	 *		condition = false;
-	 *	}
-	 * }
-	 */
-
-	for (int i = 0; i < 5; i++) { // Perfectly valid for loop
-		Log("For Hello World!");
+	for (int i = 0; i < 5; i++) {
+		if ((i + 1) % 2 == 0)
+			return 0;
+		Log("Hello World!");
+		std::cout << i << std::endl;
 	}
 
-	Log("============================");
-
-	// int i = 0;
-	// while (i < 5) {
-	bool condition = false;
-	while (condition) {
-		Log("While Hello World!");
-		// i++;
-	}
-
-	Log("============================");
-
-	do {
-		Log("Do while Hello World!");
-	} while (condition);
-
-	std::cin.get();
+	return 0;
 }

@@ -1,15 +1,19 @@
 #include <iostream>
 
-#include "Log.h"
+#define LOG(x) std::cout << x << std::endl
 
 int main()
 {
-	for (int i = 0; i < 5; i++) {
-		if ((i + 1) % 2 == 0)
-			return 0;
-		Log("Hello World!");
-		std::cout << i << std::endl;
-	}
+	// int var = 8;
+	// int* ptr = &var;
+	// *ptr = 10;
+	// LOG(var);
 
-	return 0;
+	char* buffer = new char[8];
+	memset(buffer, 0, 8);
+
+	char** ptr = &buffer;
+
+	delete[] buffer;
+	std::cin.get();
 }

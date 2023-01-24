@@ -4,14 +4,42 @@
 
 int main()
 {
-	const char* ptr = "Hello";
+	// for (;;) {} -> Infinite loop
 
-	if (ptr)
-		Log("Hello World!");
-	else if (ptr == "Hello")
-		Log("Ptr is Hello!");
-	else
-		Log("Ptr is null!");
+	/*
+	 * Perfectly valid for loop
+	 *
+	 * int i = 0;
+	 * bool condition = true;
+	 *
+	 * for (; condition; ) {
+	 *	Log("Hello World!");
+	 *	i++;
+	 *	if (!(i < 5)) {
+	 *		condition = false;
+	 *	}
+	 * }
+	 */
+
+	for (int i = 0; i < 5; i++) { // Perfectly valid for loop
+		Log("For Hello World!");
+	}
+
+	Log("============================");
+
+	// int i = 0;
+	// while (i < 5) {
+	bool condition = false;
+	while (condition) {
+		Log("While Hello World!");
+		// i++;
+	}
+
+	Log("============================");
+
+	do {
+		Log("Do while Hello World!");
+	} while (condition);
 
 	std::cin.get();
 }

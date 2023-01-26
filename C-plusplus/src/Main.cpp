@@ -2,18 +2,24 @@
 
 #define LOG(x) std::cout << x << std::endl
 
+void Increment(int& value) {
+	value++;
+}
+
 int main()
 {
-	// int var = 8;
-	// int* ptr = &var;
-	// *ptr = 10;
-	// LOG(var);
+	int a = 5;
+	int b = 8;
 
-	char* buffer = new char[8];
-	memset(buffer, 0, 8);
+	int* ref = &a;
+	*ref = 2;
+	ref = &b;
+	*ref = 1;
 
-	char** ptr = &buffer;
+	// Increment(a);
 
-	delete[] buffer;
+	LOG(a);
+	LOG(b);
+
 	std::cin.get();
 }

@@ -1,5 +1,6 @@
 #include <iostream>
 
+/*
 class Log
 {
 public:
@@ -32,14 +33,22 @@ public:
 			std::cout << "[INFO]: " << message << std::endl;
 	}
 };
+*/
+
+void Funcion()
+{
+
+}
 
 int main()
 {
+	/*
 	Log log;
 	log.SetLevel(log.LogLevelError);
 	log.Warn("Hello!");
 	log.Error("Hello!");
 	log.Info("Hello!");
+	*/
 
 	std::cin.get();
 }

@@ -1,54 +1,26 @@
 #include <iostream>
 
-/*
-class Log
+struct Entity
 {
-public:
-	const int LogLevelError = 0;
-	const int LogLevelWarning = 1;
-	const int LogLevelInfo = 2;
-private:
-	int m_LogLevel = LogLevelInfo;
-public:
-	void SetLevel(int level)
-	{
-		m_LogLevel = level;
-	}
+	int x, y;
 
-	void Error(const char* message)
+	static void Print()
 	{
-		if (m_LogLevel >= LogLevelError)
-			std::cout << "[ERROR]: " << message << std::endl;
-	}
-
-	void Warn(const char* message)
-	{
-		if (m_LogLevel >= LogLevelWarning)
-			std::cout << "[WARNING]: " << message << std::endl;
-	}
-
-	void Info(const char* message)
-	{
-		if (m_LogLevel >= LogLevelInfo)
-			std::cout << "[INFO]: " << message << std::endl;
+		std::cout << x << " , " << y << std::endl;
 	}
 };
-*/
-
-void Funcion()
-{
-
-}
 
 int main()
 {
-	/*
-	Log log;
-	log.SetLevel(log.LogLevelError);
-	log.Warn("Hello!");
-	log.Error("Hello!");
-	log.Info("Hello!");
-	*/
+	Entity e;
+	e.x = 2;
+	e.y = 3;
 
+	Entity e1;
+	e1.x = 5;
+	e1.y = 8;
+
+	e.Print();
+	e1.Print();
 	std::cin.get();
 }

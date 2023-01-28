@@ -1,34 +1,24 @@
 #include <iostream>
-#include <string>
+#include <array>
 
 class Entity
 {
 public:
-	int X, Y;
+	static const int exampleSize = 5;
+	int example[exampleSize];
 
-	void Print() {}
-public:
+	std::array<int, 5> another;
+
 	Entity()
 	{
-		X = 0;
-		Print();
-	}
-};
-
-class Player : public Entity
-{
-public:
-	Player()
-	{
-		X = 2;
-		Print();
+		for (int i = 0; i < another.size(); i++)
+			another[i] = 2;
 	}
 };
 
 int main()
 {
 	Entity e;
-	e.Print();
-	e.X = 2;
+
 	std::cin.get();
 }

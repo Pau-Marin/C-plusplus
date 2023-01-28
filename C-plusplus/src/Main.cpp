@@ -1,56 +1,34 @@
 #include <iostream>
+#include <string>
 
-class Printable
+class Entity
 {
 public:
-	virtual std::string GetClassName() = 0;
-};
+	int X, Y;
 
-class Entity :public Printable
-{
+	void Print() {}
 public:
-	virtual std::string GetName() { return "Entity"; }
-	std::string GetClassName() override { return "Entity"; }
+	Entity()
+	{
+		X = 0;
+		Print();
+	}
 };
 
 class Player : public Entity
 {
-private:
-	std::string m_Name;
 public:
-	Player(const std::string& name) :m_Name(name) {}
-
-	std::string GetName() override { return m_Name; }
-	std::string GetClassName() override { return "Player"; }
-};
-
-void PrintName(Entity* entity)
-{
-	std::cout << entity->GetName() << std::endl;
-}
-
-void Print(Printable* obj)
-{
-	std::cout << obj->GetClassName() << std::endl;
-}
-
-class A : public Printable
-{
-public:
-	std::string GetClassName() override { return "A"; }
+	Player()
+	{
+		X = 2;
+		Print();
+	}
 };
 
 int main()
 {
-	Entity* e = new Entity();
-	// PrintName(e);
-
-	Player* p = new Player("Ritsu");
-	// PrintName(p);
-
-	Print(e);
-	Print(p);
-	Print(new A());
-
+	Entity e;
+	e.Print();
+	e.X = 2;
 	std::cin.get();
 }

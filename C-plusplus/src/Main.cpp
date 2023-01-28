@@ -1,18 +1,32 @@
 #include <iostream>
 
-enum Example : char
+class Entity
 {
-	A = 5, B, C
+public:
+	float X, Y;
+
+	Entity() = delete;
+	/* Entity()
+	{
+		X = 0.0f;
+		Y = 0.0f;
+	} */
+
+	Entity(float x, float y)
+	{
+		X = x;
+		Y = y;
+	}
+
+	void Print()
+	{
+		std::cout << X << ", " << Y << std::endl;
+	}
 };
 
 int main()
 {
-	Example value = B;
-
-	if (value == 1)
-	{
-
-	}
-
+	Entity e(10.0f, 5.0f);
+	e.Print();
 	std::cin.get();
 }

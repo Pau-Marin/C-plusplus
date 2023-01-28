@@ -5,17 +5,16 @@ class Entity
 public:
 	float X, Y;
 
-	Entity() = delete;
-	/* Entity()
+	Entity()
 	{
 		X = 0.0f;
 		Y = 0.0f;
-	} */
+		std::cout << "Created Entity!" << std::endl;
+	}
 
-	Entity(float x, float y)
+	~Entity()
 	{
-		X = x;
-		Y = y;
+		std::cout << "Destroyer Entity!" << std::endl;
 	}
 
 	void Print()
@@ -24,9 +23,15 @@ public:
 	}
 };
 
+void Function()
+{
+	Entity e;
+	e.Print();
+	// e.~Entity();
+}
+
 int main()
 {
-	Entity e(10.0f, 5.0f);
-	e.Print();
+	Function();
 	std::cin.get();
 }

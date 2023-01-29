@@ -1,22 +1,25 @@
 #include <iostream>
 #include <string>
 
-void PrintString(const std::string& string)
-{
-	std::cout << string << std::endl;
-}
+#include <stdlib.h>
 
 int main()
 {
-	// char* name = "Ritsu";
-	// char name2[7] = { 'R', 'i', 't', 's', 'u', '\0' };
-	// std::cout << name2 << std::endl;
-	// name[2] = 'a';
+	using namespace std::string_literals;
 
-	std::string name = std::string("Ritsu") + " hello!";
-	// name += " hello!";
-	bool contains = name.find("su") != std::string::npos;
+	std::u32string name0 = U"Ritsu"s + U" hello";
+
+	const char* example = R"(Line1
+Line2
+Line3
+Line4)";
+
+	const char* name = "Ritsu";
+	const wchar_t* name2 = L"Ritsu";
+
+	const char16_t* name3 = u"Ritsu";
+	const char32_t* name4 = U"Ritsu";
+
 	std::cout << name << std::endl;
-
 	std::cin.get();
 }

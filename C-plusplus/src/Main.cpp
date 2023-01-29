@@ -1,24 +1,22 @@
 #include <iostream>
-#include <array>
+#include <string>
 
-class Entity
+void PrintString(const std::string& string)
 {
-public:
-	static const int exampleSize = 5;
-	int example[exampleSize];
-
-	std::array<int, 5> another;
-
-	Entity()
-	{
-		for (int i = 0; i < another.size(); i++)
-			another[i] = 2;
-	}
-};
+	std::cout << string << std::endl;
+}
 
 int main()
 {
-	Entity e;
+	// char* name = "Ritsu";
+	// char name2[7] = { 'R', 'i', 't', 's', 'u', '\0' };
+	// std::cout << name2 << std::endl;
+	// name[2] = 'a';
+
+	std::string name = std::string("Ritsu") + " hello!";
+	// name += " hello!";
+	bool contains = name.find("su") != std::string::npos;
+	std::cout << name << std::endl;
 
 	std::cin.get();
 }

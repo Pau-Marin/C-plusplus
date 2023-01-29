@@ -1,25 +1,40 @@
 #include <iostream>
-#include <string>
 
-#include <stdlib.h>
+class Entity
+{
+private:
+	int m_X, m_Y;
+	mutable int var;
+public:
+	int GetX() const
+	{
+		var = 2;
+		return m_X;
+	}
+
+	void SetX(int x)
+	{
+		m_X = x;
+	}
+};
+
+void PrintEntity(const Entity& e)
+{
+	std::cout << e.GetX() << std::endl;
+}
 
 int main()
 {
-	using namespace std::string_literals;
+	Entity e;
+	PrintEntity(e);
 
-	std::u32string name0 = U"Ritsu"s + U" hello";
+	const int MAX_AGE = 90;
 
-	const char* example = R"(Line1
-Line2
-Line3
-Line4)";
+	int* a = new int;
 
-	const char* name = "Ritsu";
-	const wchar_t* name2 = L"Ritsu";
+	*a = 2;
+	a = (int*)&MAX_AGE;
+	std::cout << *a << std::endl;
 
-	const char16_t* name3 = u"Ritsu";
-	const char32_t* name4 = U"Ritsu";
-
-	std::cout << name << std::endl;
 	std::cin.get();
 }

@@ -15,13 +15,13 @@ public:
 
 int main()
 {
-	Entity* e;
-	{
-		Entity* entity = new Entity("Ritsu");
-		e = entity;
-		std::cout << entity->GetName() << std::endl;
-	}
+	int a = 2;
+	int* b = new int[50];
+
+	Entity* e = new Entity();
+
+	delete e;
+	delete[] b;
 
 	std::cin.get();
-	delete e;
 }

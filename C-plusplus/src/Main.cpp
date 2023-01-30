@@ -1,27 +1,29 @@
 #include <iostream>
 
-using String = std::string;
-
 class Entity
 {
 private:
-	String m_Name;
+	std::string m_Name;
+	int m_Age;
 public:
-	Entity() :m_Name("Unknown") {}
-	Entity(const String& name) : m_Name(name) {}
-
-	const String& GetName() const { return m_Name; }
+	Entity(const std::string& name)
+		: m_Name(name), m_Age(-1) {}
+	explicit Entity(int age)
+		: m_Name("Unknown"), m_Age(age) {}
 };
+
+void Printentity(const Entity& entity)
+{
+
+}
 
 int main()
 {
-	int a = 2;
-	int* b = new int[50];
+	Printentity(Entity(27));
+	Printentity(Entity("Ritsu"));
 
-	Entity* e = new Entity();
-
-	delete e;
-	delete[] b;
+	Entity a = std::string("Ritsu");
+	Entity b(27);
 
 	std::cin.get();
 }

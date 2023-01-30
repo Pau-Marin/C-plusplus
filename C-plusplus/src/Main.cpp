@@ -3,38 +3,29 @@
 class Entity
 {
 private:
-	int m_X, m_Y;
-	mutable int var;
+	std::string m_Name;
+	mutable int m_DebugCount = 0;
 public:
-	int GetX() const
+	const std::string& GetName()const
 	{
-		var = 2;
-		return m_X;
-	}
-
-	void SetX(int x)
-	{
-		m_X = x;
+		m_DebugCount++;
+		return m_Name;
 	}
 };
 
-void PrintEntity(const Entity& e)
-{
-	std::cout << e.GetX() << std::endl;
-}
-
 int main()
 {
-	Entity e;
-	PrintEntity(e);
+	const Entity e;
+	e.GetName();
 
-	const int MAX_AGE = 90;
+	int x = 8;
+	auto f = [=]() mutable
+	{
+		x++;
+		std::cout << x << std::endl;
+	};
 
-	int* a = new int;
-
-	*a = 2;
-	a = (int*)&MAX_AGE;
-	std::cout << *a << std::endl;
+	f();
 
 	std::cin.get();
 }

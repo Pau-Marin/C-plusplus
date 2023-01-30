@@ -1,29 +1,64 @@
 #include <iostream>
 
-class Entity
+struct Vector2
 {
-private:
-	std::string m_Name;
-	int m_Age;
-public:
-	Entity(const std::string& name)
-		: m_Name(name), m_Age(-1) {}
-	explicit Entity(int age)
-		: m_Name("Unknown"), m_Age(age) {}
+	float x, y;
+
+	Vector2(float x, float y) : x(x), y(y) {}
+
+	Vector2 Add(const Vector2& other) const
+	{
+		return Vector2(x + other.x, y + other.y);
+	}
+
+	Vector2 operator+(const Vector2& other) const
+	{
+		return Add(other);
+	}
+
+	Vector2 Multiply(const Vector2& other) const
+	{
+		return Vector2(x * other.x, y * other.y);
+	}
+
+	Vector2 operator*(const Vector2& other) const
+	{
+		return Multiply(other);
+	}
+
+	bool operator==(const Vector2& other) const
+	{
+		return x == other.x && y == other.y;
+	}
+
+	bool operator!=(const Vector2& other) const
+	{
+		return !(*this == other);
+	}
 };
 
-void Printentity(const Entity& entity)
+std::ostream& operator<<(std::ostream& stream, const Vector2& other)
 {
-
+	stream << other.x << ", " << other.y;
+	return stream;
 }
 
 int main()
 {
-	Printentity(Entity(27));
-	Printentity(Entity("Ritsu"));
+	Vector2 position(4.0f, 4.0f);
+	Vector2 speed(0.5f, 1.5f);
+	Vector2 powerup(1.1f, 1.1f);
 
-	Entity a = std::string("Ritsu");
-	Entity b(27);
+	Vector2 result1 = position.Add(speed.Multiply(powerup));
+	Vector2 result2 = position + speed * powerup;
+
+	if (result1 == result2)
+	{
+
+	}
+
+	std::cout << result1 << std::endl;
+	std::cout << result2 << std::endl;
 
 	std::cin.get();
 }

@@ -1,61 +1,46 @@
 #include <iostream>
 
-class String
+class Entity
 {
-private:
-	char* m_Buffer;
-	unsigned int m_Size;
 public:
-	String(const char* string)
-	{
-		m_Size = strlen(string);
-		m_Buffer = new char[m_Size + 1];
-		memcpy(m_Buffer, string, m_Size);
-		m_Buffer[m_Size] = 0;
-	}
-
-	String(const String& other)
-		: m_Size(other.m_Size)
-	{
-		m_Buffer = new char[m_Size + 1];
-		memcpy(m_Buffer, other.m_Buffer, m_Size + 1);
-	}
-
-	~String()
-	{
-		delete[] m_Buffer;
-	}
-
-	char& operator[](unsigned int index)
-	{
-		return m_Buffer[index];
-	}
-
-	friend std::ostream& operator<<(std::ostream& stream, const String& string);
+	int x;
+public:
+	void Print() const { std::cout << "Hello!" << std::endl; }
 };
 
-std::ostream& operator<<(std::ostream& stream, const String& string)
+class ScopedPtr
 {
-	stream << string.m_Buffer;
-	return stream;
-}
+private:
+	Entity* m_Obj;
+public:
+	ScopedPtr(Entity* entity)
+		: m_Obj(entity)
+	{
+	}
 
-void PrintString(const String& string)
+	~ScopedPtr()
+	{
+		delete m_Obj;
+	}
+
+
+	Entity* operator->() { return m_Obj; }
+
+	const Entity* operator->() const { return m_Obj; }
+};
+
+struct Vector3
 {
-	std::cout << string << std::endl;
-}
+	float x, y, z;
+};
 
 int main()
 {
-	String string = "Ritsu";
-	String second = string;
+	const ScopedPtr entity = new Entity();
+	entity->Print();
 
-	second[1] = 'a';
-
-	PrintString(string);
-	PrintString(second);
-
-
+	int offset = (int)&((Vector3*)nullptr)->y;
+	std::cout << offset << std::endl;
 
 	std::cin.get();
 }
